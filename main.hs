@@ -55,7 +55,7 @@ x `dividedBy` y = (SuccessorOf nextXDivisionResult, Remainder remainder)
 		(nextXDivisionResult, _) = (nextX `dividedBy` y)
 
 
--- Exponentiation
+-- Exponentiation:
 toThePowerOf :: Number -> Number -> Number
 _ `toThePowerOf` Zero = SuccessorOf Zero
 x `toThePowerOf` (SuccessorOf y) = x `times` (x `toThePowerOf` y)
@@ -83,13 +83,13 @@ main = do
 	putStrLn "3 - 3 ="
 	print $ three `minus` three
 	
-	-- Comparison
+	-- Comparison:
 	putStrLn "3 > 2 ?"
 	print $ three `greaterThan` two
 	putStrLn "2 > 3 ?"
 	print $ two `greaterThan` three
 	
-	-- Division
+	-- Division:
 	let six = three `plus` three
 	putStrLn "6 / 3 ="
 	print $ six `dividedBy` three
@@ -99,7 +99,7 @@ main = do
 	putStrLn "6 / 5 ="
 	print $ six `dividedBy` five
 
-	-- Exponentiation
+	-- Exponentiation:
 	putStrLn "3 ** 2 ="
 	print $ three `toThePowerOf` two
 	let nine = three `times` three
