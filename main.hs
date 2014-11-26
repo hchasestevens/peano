@@ -59,6 +59,16 @@ x `dividedBy` y = (SuccessorOf nextXDivisionResult, Remainder remainder)
 toThePowerOf :: Number -> Number -> Number
 _ `toThePowerOf` Zero = SuccessorOf Zero
 x `toThePowerOf` (SuccessorOf y) = x `times` (x `toThePowerOf` y)
+
+
+root :: Number -> Number -> Number
+_ `root` Zero = Zero
+x `root` y = iterRoot y
+	where
+		iterRoot a@(SuccessorOf b)
+			| SuccessorOf _ <- a `toThePowerOf` x `greaterThan` y = iterRoot b
+			| otherwise = a
+
 		
 
 -- Main:
@@ -105,3 +115,9 @@ main = do
 	let nine = three `times` three
 	putStrLn "3 ** 2 == 9 ?"
 	print $ three `toThePowerOf` two `equals` nine
+
+	-- Root
+	putStrLn "root(2, 9) ="
+	print $ two `root` nine
+	putStrLn "root(3, 27) ="
+	print $ three `root` (nine `times` three)
